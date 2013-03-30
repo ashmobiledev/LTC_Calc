@@ -6,7 +6,7 @@
         id        = "com.ashbrokerage.ltcfcc"
         version   = "1.0.0">
 
-    <name>LTC Calculator</name>
+    <name>Ash LTC Calc</name>
 
     <description>
         Ash Brokerage Long Term Care Calculator.  Calculates the future cost of care.
