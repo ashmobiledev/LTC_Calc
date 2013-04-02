@@ -78,15 +78,13 @@ function checkInputs() {
 
     if (amount > 0) {
 
-        var tabPanel = Ext.Viewport.down("tabpanel");
-        tabPanel.setActiveItem(1);
+        return true;
+        
 
     }
     else {
-
-        Ext.Msg.alert('Benefit Amount must be > 0');
-        var tabPanel = Ext.Viewport.down("tabpanel");
-        tabPanel.setActiveItem(0);
+        return false;
+        
     }
 }
 
