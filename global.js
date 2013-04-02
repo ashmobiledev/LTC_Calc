@@ -9,11 +9,9 @@ function onDeviceReady() {
     checkConnection();
 }
 
+// this doesn't work on mobile... don't even try it.  I'm leaving this here so you see it and read this.... don't do it.  
 $(document).ready(function () {
-    $(".ashmap").click(function (e) {
-        e.preventDefault();
-        openInNativeBrowser('http://maps.google.com/maps?f=d&saddr=&daddr=7609+West+Jefferson+Blvd+Fort+Wayne%2C+IN+46804&hl=en&geocode=&mra=ls&sll=39.916171,-86.098821&sspn=0.011027,0.019226&ie=UTF8&z=16&layer=c&cbll=39.916176,-86.0988');
-    });
+
 }); 
 
 function checkConnection() {
@@ -47,10 +45,48 @@ function loadURL(url) {
     });
 
     return retVal;
-};
+}
 
+//-----------------------------------------------
+// Open links in native browser outside of app
+//-----------------------------------------------
 function openInNativeBrowser(link) {
 
     var ref = window.open(link, '_system', 'location=yes');
     return false;
 }
+
+function checkInputs() {
+    // get input values for calculation
+    //-----------------------------------
+    var currentage = Ext.ComponentQuery.query('#currentage')[0].getValue();
+    var agebegin = Ext.ComponentQuery.query('#agebegin')[0].getValue();
+    var careyears = Ext.ComponentQuery.query('#careyears')[0].getValue();
+    var monthlybenefit = Ext.ComponentQuery.query('#monthlybenefit')[0].getValue();
+    var inflation = Ext.ComponentQuery.query('#inflation')[0].getValue();
+    var amount;
+    var summaryInfo;
+    var resultsTable;
+
+
+
+    currentage = parseFloat(currentage);
+    agebegin = parseInt(agebegin);
+    careyears = parseInt(careyears);
+    monthlybenefit = parseFloat(monthlybenefit);
+    amount = monthlybenefit;
+
+    if (amount > 0) {
+
+        var tabPanel = Ext.Viewport.down("tabpanel");
+        tabPanel.setActiveItem(1);
+
+    }
+    else {
+
+        Ext.Msg.alert('Benefit Amount must be > 0');
+        var tabPanel = Ext.Viewport.down("tabpanel");
+        tabPanel.setActiveItem(0);
+    }
+}
+
