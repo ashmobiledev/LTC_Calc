@@ -56,6 +56,25 @@ function openInNativeBrowser(link) {
     return false;
 }
 
+//-----------------------------------------------
+// Initiates call on device
+//-----------------------------------------------
+function makeCall(number) {
+
+    window.location.href = "tel:" + number;
+    return false;
+}
+
+//-----------------------------------------------
+// Initiates email on device
+//-----------------------------------------------
+function sendEmail(address) {
+
+    window.location.href = "mailto:" + address;
+    return false;
+}
+
+
 function checkInputs() {
     // get input values for calculation
     //-----------------------------------
