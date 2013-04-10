@@ -12,7 +12,7 @@
         Ash Brokerage Long Term Care Calculator.  Calculates the future cost of care.
     </description>
 
-    <author href="http://www.ashbrokearge.com" email="mobiledev@phonegap.com">
+    <author href="http://www.ashbrokearge.com" email="mobiledev@ashbrokerage.com">
         Ash Brokerage Corp.
     </author>
 
@@ -32,7 +32,7 @@
     <!-- Customize your app and platform with the preference element. -->
     <preference name="phonegap-version"           value="2.3.0" />
     <!-- all: current version of PhoneGap -->
-    <preference name="orientation"                value="default" />
+    <preference name="orientation"                value="portrait" />
     <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />
     <!-- all: possible values handset, tablet, or universal -->
