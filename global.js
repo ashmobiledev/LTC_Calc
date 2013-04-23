@@ -59,15 +59,19 @@ function vibrateDevice(duration) {
 //-----------------------------------------------
 // Show Native Alert
 //-----------------------------------------------
-function showNativeAlert(message, callbackFunction, title, buttonName) {
+function showNativeAlert(message, title, buttonName) {
 
     navigator.notification.alert(
         message,                // message
-        callbackFunction,       // callback
+        alertDismissed,         // callback
         title,                  // title
         buttonName              // buttonName
     );
     return false;
+}
+
+function alertDismissed() {
+    // do something
 }
 
 //-----------------------------------------------
