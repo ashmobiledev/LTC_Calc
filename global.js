@@ -48,6 +48,29 @@ function loadURL(url) {
 }
 
 //-----------------------------------------------
+// Vibrate Device
+//-----------------------------------------------
+function vibrateDevice(duration) {
+
+    navigator.notification.vibrate(duration);
+    return false;
+}
+
+//-----------------------------------------------
+// Show Native Alert
+//-----------------------------------------------
+function showNativeAlert(message, callbackFunction, title, buttonName) {
+
+    navigator.notification.alert(
+        message,                // message
+        callbackFunction,       // callback
+        title,                  // title
+        buttonName              // buttonName
+    );
+    return false;
+}
+
+//-----------------------------------------------
 // Open links in native browser outside of app
 //-----------------------------------------------
 function openInNativeBrowser(link) {
