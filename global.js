@@ -52,7 +52,12 @@ function loadURL(url) {
 //-----------------------------------------------
 function vibrateDevice(duration) {
 
-    navigator.notification.vibrate(duration);
+    try {
+        navigator.notification.vibrate(duration);
+    }
+    catch (e) {
+        // do nothing (web)
+    }
     return false;
 }
 
@@ -61,17 +66,48 @@ function vibrateDevice(duration) {
 //-----------------------------------------------
 function showNativeAlert(message, title, buttonName) {
 
-    navigator.notification.alert(
-        message,                // message
-        alertDismissed,         // callback
-        title,                  // title
-        buttonName              // buttonName
-    );
+    try {
+        navigator.notification.alert(
+            message,                // message
+            alertDismissed,         // callback
+            title,                  // title
+            buttonName              // buttonName
+        );
+    }
+    catch (e) {
+        // web
+        Ext.Msg.alert('Benefit Amount must be > 0');
+    }
     return false;
 }
 
 function alertDismissed() {
     // do something
+}
+
+//-----------------------------------------------
+// Print Results
+//-----------------------------------------------
+function printResults() {
+
+    try {
+        //resultTable
+        // create print frame
+
+        var pFrame = Ext.get('printerFrame');
+        if (!pFrame) {
+            Ext.getBody().insertHtml("beforeEnd", "<iframe id='printerFrame' style='display:none'> </iframe>");
+            pFrame = Ext.get('printerFrame');
+        }
+
+        var contentWindow = pFrame.dom.contentWindow;
+        contentWindow.document.body.innerHTML = $("#results").html();
+        contentWindow.print();
+    }
+    catch (e) {
+        // do nothing 
+    }
+    return false;
 }
 
 //-----------------------------------------------
