@@ -76,7 +76,7 @@ function showNativeAlert(message, title, buttonName) {
     }
     catch (e) {
         // web
-        Ext.Msg.alert('Benefit Amount must be > 0');
+        Ext.Msg.alert(message);
     }
     return false;
 }
@@ -105,7 +105,8 @@ function printResults() {
         contentWindow.print();
     }
     catch (e) {
-        // do nothing 
+        showNativeAlert("error printing");
+         
     }
     return false;
 }
