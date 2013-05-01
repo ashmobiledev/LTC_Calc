@@ -105,7 +105,7 @@ function printResults() {
         contentWindow.print();
     }
     catch (e) {
-        showNativeAlert("error printing");
+        showNativeAlert("error printing", "Print Error", "OK");
          
     }
     return false;
