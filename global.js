@@ -93,21 +93,18 @@ function printResults() {
     try {
         //resultTable
         // create print frame
-        alert("print2");
+
         var pFrame = Ext.get('printerFrame');
         if (!pFrame) {
             Ext.getBody().insertHtml("beforeEnd", "<iframe id='printerFrame' style='display:none'> </iframe>");
             pFrame = Ext.get('printerFrame');
         }
-        alert("print3");
+
         var contentWindow = pFrame.dom.contentWindow;
         contentWindow.document.body.innerHTML = $("#results").html();
-        alert("print4");
         contentWindow.print();
-        alert("print5");
     }
     catch (e) {
-        alert("print6");
         showNativeAlert("error printing", "Print Error", "OK");
          
     }
