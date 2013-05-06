@@ -6,7 +6,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //
 function onDeviceReady() {
 
-    //checkConnection();
+    checkConnection();
 }
 
 // this doesn't work on mobile... don't even try it.  I'm leaving this here so you see it and read this.... don't do it.  
@@ -15,18 +15,33 @@ $(document).ready(function () {
 }); 
 
 function checkConnection() {
-//    var networkState = navigator.connection.type;
+    var networkState = navigator.connection.type;
 
-//    var states = {};
-//    states[Connection.UNKNOWN] = 'Unknown connection';
-//    states[Connection.ETHERNET] = 'Ethernet connection';
-//    states[Connection.WIFI] = 'WiFi connection';
-//    states[Connection.CELL_2G] = 'Cell 2G connection';
-//    states[Connection.CELL_3G] = 'Cell 3G connection';
-//    states[Connection.CELL_4G] = 'Cell 4G connection';
-//    states[Connection.NONE] = 'No network connection';
+    var states = {};
+    states[Connection.UNKNOWN] = 'Unknown connection';
+    states[Connection.ETHERNET] = 'Ethernet connection';
+    states[Connection.WIFI] = 'WiFi connection';
+    states[Connection.CELL_2G] = 'Cell 2G connection';
+    states[Connection.CELL_3G] = 'Cell 3G connection';
+    states[Connection.CELL_4G] = 'Cell 4G connection';
+    states[Connection.NONE] = 'No network connection';
 
-    //alert('Connection type: ' + states[networkState]);
+    alert('Connection type: ' + states[networkState]);
+
+    if (states[Connection.NONE]) {
+
+        vibrateDevice(2000);
+        showNativeAlert('A Network connection was not detected.  Some features of this app will not function correctly without it.', 'No Network Detected', 'OK');
+
+    }
+    else {
+        var script = document.createElement("script");
+            script.type = "text/javascript";
+            script.src = "http://maps.google.com/maps/api/js?sensor=true";
+            document.head.appendChild(script); ;
+    }
+
+    
 }
 
 
@@ -82,6 +97,30 @@ function showNativeAlert(message, title, buttonName) {
 }
 
 function alertDismissed() {
+    // do something
+}
+
+//-----------------------------------------------
+// Show Native Confirm
+//-----------------------------------------------
+function showNativeConfirmation(message, title, buttonNames) {
+
+    try {
+        navigator.notification.confirm(
+            message,                // message
+            confirmationCallback,         // callback
+            title,                  // title
+            buttonNames              // buttonNames (seperate by commas)
+        );
+    }
+    catch (e) {
+        // web
+        Ext.Msg.alert(message);
+    }
+    //return false;
+}
+
+function confirmationCallback(buttonIndex) {
     // do something
 }
 
