@@ -24,11 +24,11 @@ function checkConnection() {
     states[Connection.CELL_2G] = 'Cell 2G connection';
     states[Connection.CELL_3G] = 'Cell 3G connection';
     states[Connection.CELL_4G] = 'Cell 4G connection';
-    states[Connection.NONE] = 'No network connection';
+    states[Connection.NONE] = 'None';
 
     alert('Connection type: ' + states[networkState]);
 
-    if (states[Connection.NONE]) {
+    if (states[networkState] == "None" ) {
 
         vibrateDevice(2000);
         showNativeAlert('A Network connection was not detected.  Some features of this app will not function correctly without it.', 'No Network Detected', 'OK');
