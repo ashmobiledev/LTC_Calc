@@ -15,31 +15,31 @@ $(document).ready(function () {
 }); 
 
 function checkConnection() {
-    var networkState = navigator.connection.type;
+//    var networkState = navigator.connection.type;
 
-    var states = {};
-    states[Connection.UNKNOWN] = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI] = 'WiFi connection';
-    states[Connection.CELL_2G] = 'Cell 2G connection';
-    states[Connection.CELL_3G] = 'Cell 3G connection';
-    states[Connection.CELL_4G] = 'Cell 4G connection';
-    states[Connection.NONE] = 'None';
+//    var states = {};
+//    states[Connection.UNKNOWN] = 'Unknown connection';
+//    states[Connection.ETHERNET] = 'Ethernet connection';
+//    states[Connection.WIFI] = 'WiFi connection';
+//    states[Connection.CELL_2G] = 'Cell 2G connection';
+//    states[Connection.CELL_3G] = 'Cell 3G connection';
+//    states[Connection.CELL_4G] = 'Cell 4G connection';
+//    states[Connection.NONE] = 'None';
 
-    alert('Connection type: ' + states[networkState]);
+//    alert('Connection type: ' + states[networkState]);
 
-    if (states[networkState] == "None" ) {
+//    if (states[networkState] == "None" ) {
 
-        vibrateDevice(2000);
-        showNativeAlert('A Network connection was not detected.  Some features of this app will not function correctly without it.', 'No Network Detected', 'OK');
+//        vibrateDevice(2000);
+//        showNativeAlert('A Network connection was not detected.  Some features of this app will not function correctly without it.', 'No Network Detected', 'OK');
 
-    }
-    else {
-            var script = document.createElement("script");
-            script.type = "text/javascript";
-            script.src = "http://maps.google.com/maps/api/js?sensor=true";
-            document.head.appendChild(script); ;
-    }
+//    }
+//    else {
+//            var script = document.createElement("script");
+//            script.type = "text/javascript";
+//            script.src = "http://maps.google.com/maps/api/js?sensor=true";
+//            document.head.appendChild(script); ;
+//    }
 
     
 }
