@@ -6,7 +6,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 //
 function onDeviceReady() {
 
-    checkConnection();
+    //checkConnection();
 }
 
 // this doesn't work on mobile... don't even try it.  I'm leaving this here so you see it and read this.... don't do it.  
@@ -35,7 +35,7 @@ function checkConnection() {
 
     }
     else {
-        var script = document.createElement("script");
+            var script = document.createElement("script");
             script.type = "text/javascript";
             script.src = "http://maps.google.com/maps/api/js?sensor=true";
             document.head.appendChild(script); ;
