@@ -1,18 +1,18 @@
 ﻿// Wait for Cordova to load
 //
-document.addEventListener("deviceready", onDeviceReady, false);
+//document.addEventListener("deviceready", onDeviceReady, false);
 
 // Cordova is ready
 //
-function onDeviceReady() {
+//function onDeviceReady() {
 
     //checkConnection();
-}
+//}
 
 // this doesn't work on mobile... don't even try it.  I'm leaving this here so you see it and read this.... don't do it.  
-$(document).ready(function () {
+//$(document).ready(function () {
 
-}); 
+//}); 
 
 function checkConnection() {
 //    var networkState = navigator.connection.type;
