@@ -51,46 +51,46 @@
         }
     </style>
     <!-- The line below must be kept intact for Sencha Command to build your application -->
-    
+    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
     <script type="text/javascript" charset="utf-8">
         
         //document.write("<script type='text/javascript' charset='utf-8' src='http://maps.google.com/maps/api/js?sensor=true'><\/script>")  //uncomment for local testing
-//        document.addEventListener("deviceready", onDeviceReady, false);
+        document.addEventListener("deviceready", onDeviceReady, false);
 
-//        // Cordova is ready
-//        //
-//        function onDeviceReady() {
-//                var networkState = navigator.connection.type;
+        // Cordova is ready
+        //
+        function onDeviceReady() {
+                var networkState = navigator.connection.type;
 
-//                var states = {};
-//                states[Connection.UNKNOWN] = 'Unknown connection';
-//                states[Connection.ETHERNET] = 'Ethernet connection';
-//                states[Connection.WIFI] = 'WiFi connection';
-//                states[Connection.CELL_2G] = 'Cell 2G connection';
-//                states[Connection.CELL_3G] = 'Cell 3G connection';
-//                states[Connection.CELL_4G] = 'Cell 4G connection';
-//                states[Connection.NONE] = 'None';
+                var states = {};
+                states[Connection.UNKNOWN] = 'Unknown connection';
+                states[Connection.ETHERNET] = 'Ethernet connection';
+                states[Connection.WIFI] = 'WiFi connection';
+                states[Connection.CELL_2G] = 'Cell 2G connection';
+                states[Connection.CELL_3G] = 'Cell 3G connection';
+                states[Connection.CELL_4G] = 'Cell 4G connection';
+                states[Connection.NONE] = 'None';
 
-//                //alert('Connection type: ' + states[networkState]);
+                //alert('Connection type: ' + states[networkState]);
 
-//                if (states[networkState] == "None" ) {
+                if (states[networkState] == "None" ) {
 
-//                    vibrateDevice(2000);
-//                    showNativeAlert('A Network connection was not detected.  Some features of this app will not function correctly without it.', 'No Network Detected', 'OK');
+                    vibrateDevice(2000);
+                    showNativeAlert('A Network connection was not detected.  Mapping features of this app will not function correctly without it.', 'No Network Detected', 'OK');
 
-//                }
-//                else {
-//                    document.write("<script type='text/javascript' charset='utf-8' src='http://maps.google.com/maps/api/js?sensor=true'><\/script>")
-//                }
-//  
-//        }
+                }
+                else {
+                    document.write("<script type='text/javascript' charset='utf-8' src='http://maps.google.com/maps/api/js?sensor=true'><\/script>")
+                }
+  
+        }
 
        
             
       
     </script>
-    <script type="text/javascript" charset="utf-8" src="http://maps.google.com/maps/api/js?sensor=true"></script>
-    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <!--<script type="text/javascript" charset="utf-8" src="http://maps.google.com/maps/api/js?sensor=true"></script>-->
+    
     <script type="text/javascript" charset="utf-8" src="jquery.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="global.js"></script>
     <script type="text/javascript">(function(i){function k(f,c){var a=document.createElement("meta");a.setAttribute("name",f);a.setAttribute("content",c);n.appendChild(a)}var n=i.document.head;if("undefined"===typeof c)var c=i.Ext={};c.blink=function(f){var i=f.js||[],f=f.css||[],a,j,b,d,l;navigator.userAgent.match(/IEMobile\/10\.0/)&&(a=document.createElement("style"),a.appendChild(document.createTextNode("@media screen and (orientation: portrait) {@-ms-viewport {width: 320px !important;}}@media screen and (orientation: landscape) {@-ms-viewport {width: 560px !important;}}")),
