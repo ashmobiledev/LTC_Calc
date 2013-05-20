@@ -1,18 +1,22 @@
-﻿// Wait for Cordova to load
-//
+﻿//-----------------------------------------
+// Global Variables
+//------------------------------------
+
+
+//-----------------------------------------
+// Wait for Cordova to load
+//-------------------------------------
 document.addEventListener("deviceready", onDeviceReady, false);
 
+//-----------------------------------------
 // Cordova is ready
-//
+//-----------------------------------------
 function onDeviceReady() {
 
     checkConnection();
 }
 
-// this doesn't work on mobile... don't even try it.  I'm leaving this here so you see it and read this.... don't do it.  
-//$(document).ready(function () {
 
-//}); 
 
 function checkConnection() {
     var networkState = navigator.connection.type;
@@ -35,6 +39,56 @@ function checkConnection() {
 
     }
     
+}
+
+//-----------------------------------------------
+// Geolocation - Get Current Position
+//-----------------------------------------------
+function geolocateMe() {
+    var LatLngCurrent = new Array();
+
+    try {
+        LatLngCurrent = navigator.geolocation.getCurrentPosition(onSuccessGeolocateMe, onErrorGeolocateMe);
+    }
+    catch (e) {
+        vibrateDevice(2000);
+        showNativeAlert('Error during geolocation', 'Geolocation Error', 'OK');
+    }
+
+    return LatLngCurrent;
+}
+
+// onSuccess Callback
+//   This method accepts a `Position` object, which contains
+//   the current GPS coordinates
+//
+var onSuccessGeolocateMe = function (position) {
+    var LatLng = new Array();
+
+    LatLng[0] = position.coords.latitude;
+    LatLng[1] = position.coords.longitude;
+
+    return LatLng;
+
+    //    alert('Latitude: ' + position.coords.latitude + '\n' +
+    //          'Longitude: ' + position.coords.longitude + '\n' +
+    //          'Altitude: ' + position.coords.altitude + '\n' +
+    //          'Accuracy: ' + position.coords.accuracy + '\n' +
+    //          'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+    //          'Heading: ' + position.coords.heading + '\n' +
+    //          'Speed: ' + position.coords.speed + '\n' +
+    //          'Timestamp: ' + position.timestamp + '\n');
+};
+
+// onError Callback receives a PositionError object
+//
+function onErrorGeolocateMe(error) {
+
+    vibrateDevice(2000);
+    showNativeAlert('Error during geolocation', 'Geolocation Error', 'OK');
+
+//    alert('code: ' + error.code + '\n' +
+//          'message: ' + error.message + '\n');
 }
 
 
