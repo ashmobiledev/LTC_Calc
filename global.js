@@ -49,12 +49,13 @@ function geolocateMe() {
 
     try {
         LatLngCurrent = navigator.geolocation.getCurrentPosition(onSuccessGeolocateMe, onErrorGeolocateMe);
+        
     }
     catch (e) {
         vibrateDevice(2000);
         showNativeAlert('Error during geolocation', 'Geolocation Error', 'OK');
     }
-
+    alert(LatLngCurrent);
     return LatLngCurrent;
 }
 
@@ -67,17 +68,19 @@ var onSuccessGeolocateMe = function (position) {
 
     LatLng[0] = position.coords.latitude;
     LatLng[1] = position.coords.longitude;
+alert('Latitude: ' + position.coords.latitude + '\n' +
+              'Longitude: ' + position.coords.longitude + '\n' +
+              'Altitude: ' + position.coords.altitude + '\n' +
+              'Accuracy: ' + position.coords.accuracy + '\n' +
+              'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
+              'Heading: ' + position.coords.heading + '\n' +
+              'Speed: ' + position.coords.speed + '\n' +
+              'Timestamp: ' + position.timestamp + '\n');
+
 
     return LatLng;
 
-    //    alert('Latitude: ' + position.coords.latitude + '\n' +
-    //          'Longitude: ' + position.coords.longitude + '\n' +
-    //          'Altitude: ' + position.coords.altitude + '\n' +
-    //          'Accuracy: ' + position.coords.accuracy + '\n' +
-    //          'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
-    //          'Heading: ' + position.coords.heading + '\n' +
-    //          'Speed: ' + position.coords.speed + '\n' +
-    //          'Timestamp: ' + position.timestamp + '\n');
+        
 };
 
 // onError Callback receives a PositionError object
