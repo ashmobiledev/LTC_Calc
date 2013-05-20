@@ -58,28 +58,6 @@ function geolocateMe() {
     return LatLngCurrent;
 }
 
-// onSuccess Callback
-//   This method accepts a `Position` object, which contains
-//   the current GPS coordinates
-//
-var onSuccessGeolocateMe = function (position) {
-    var LatLng = new Array();
-
-    LatLng[0] = position.coords.latitude;
-    LatLng[1] = position.coords.longitude;
-
-    return LatLng;
-
-    //    alert('Latitude: ' + position.coords.latitude + '\n' +
-    //          'Longitude: ' + position.coords.longitude + '\n' +
-    //          'Altitude: ' + position.coords.altitude + '\n' +
-    //          'Accuracy: ' + position.coords.accuracy + '\n' +
-    //          'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '\n' +
-    //          'Heading: ' + position.coords.heading + '\n' +
-    //          'Speed: ' + position.coords.speed + '\n' +
-    //          'Timestamp: ' + position.timestamp + '\n');
-};
-
 // onError Callback receives a PositionError object
 //
 function onErrorGeolocateMe(error) {
