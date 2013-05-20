@@ -1,7 +1,7 @@
 ﻿//-----------------------------------------
 // Global Variables
 //------------------------------------
-
+var LatLngCurrent = new Array();
 
 //-----------------------------------------
 // Wait for Cordova to load
@@ -45,17 +45,17 @@ function checkConnection() {
 // Geolocation - Get Current Position
 //-----------------------------------------------
 function geolocateMe() {
-    var LatLngCurrent = new Array();
+    
 
     try {
-        LatLngCurrent = navigator.geolocation.getCurrentPosition(onSuccessGeolocateMe, onErrorGeolocateMe);
+        navigator.geolocation.getCurrentPosition(onSuccessGeolocateMe, onErrorGeolocateMe);
         
     }
     catch (e) {
         vibrateDevice(2000);
         showNativeAlert('Error during geolocation', 'Geolocation Error', 'OK');
     }
-    alert(LatLngCurrent);
+    
     return LatLngCurrent;
 }
 
@@ -64,11 +64,11 @@ function geolocateMe() {
 //   the current GPS coordinates
 //
 var onSuccessGeolocateMe = function (position) {
-    var LatLng = new Array();
 
-    LatLng[0] = position.coords.latitude;
-    LatLng[1] = position.coords.longitude;
-alert('Latitude: ' + position.coords.latitude + '\n' +
+
+    LatLngCurrent[0] = position.coords.latitude;
+    LatLngCurrent[1] = position.coords.longitude;
+    alert('Latitude: ' + position.coords.latitude + '\n' +
               'Longitude: ' + position.coords.longitude + '\n' +
               'Altitude: ' + position.coords.altitude + '\n' +
               'Accuracy: ' + position.coords.accuracy + '\n' +
